@@ -160,3 +160,41 @@ img {
   font: bold;
   padding: 8px;
 }
+.title-2 {
+  font-size: 30px;
+  text-align: left;
+  font: bold;
+}
+
+.nav {
+  background: rgb(157, 110, 250);
+}
+.nav-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+.nav-btn--out {
+  background: rgb(157, 0, 255);
+  padding: 0.5rem 1rem;
+  font-size: 1.2rem;
+  border-color: transparent;
+  border-top-right-radius: 0.25rem;
+  border-bottom-right-radius: 0.25rem;
+  text-transform: capitalize;
+  color: white;
+  cursor: pointer;
+}
+.nav-btn--in {
+  background: rgb(157, 0, 255);
+  padding: 0.5rem 1rem;
+  font-size: 1.2rem;
+  border-color: transparent;
+  border-top-right-radius: 0.25rem;
+  border-bottom-right-radius: 0.25rem;
+  text-transform: capitalize;
+  color: white;
+  cursor: pointer;
+}

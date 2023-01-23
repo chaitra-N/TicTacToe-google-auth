@@ -1,16 +1,16 @@
 import React from "react";
 import Square from "./Square";
 import { useState, useEffect } from "react";
-import { WinningPatterns } from "./WinningPatterns";
+import { WinningPatterns } from "../GameComponents/WinningPatterns";
 import Modal from "./Modal";
-import SignInUp from "./SignInUp";
+import { UserAuth } from "../context/AuthContext";
 
 const Game = () => {
   const [board, setBoard] = useState(["", "", "", "", "", "", "", "", ""]);
   const [player, setPlayer] = useState("O");
   const [winner, setWinner] = useState({ winner: "none", state: "none" });
   const [openModal, setModel] = useState(false);
-  const [profile, setProfile] = useState([]);
+  const { logOut, user } = UserAuth();
 
   useEffect(() => {
     checkWinner();
@@ -79,33 +79,36 @@ const Game = () => {
   };
 
   return (
-    <div className='game'>
-      <Modal
-        openModal={openModal}
-        onClose={() => setModel(false)}
-        winner={winner}
-        restartGame={restartGame}
-      />
-      <div className='board'>
-        <div className='row'>
-          <Square val={board[0]} checkSquare={() => checkSquare(0)} />
+    <div>
+      <p className='title-2'>Welcome,{user?.displayName}</p>
+      <div className='game'>
+        <Modal
+          openModal={openModal}
+          onClose={() => setModel(false)}
+          winner={winner}
+          restartGame={restartGame}
+        />
+        <div className='board'>
+          <div className='row'>
+            <Square val={board[0]} checkSquare={() => checkSquare(0)} />
 
-          <Square val={board[1]} checkSquare={() => checkSquare(1)} />
-          <Square val={board[2]} checkSquare={() => checkSquare(2)} />
-        </div>
-        <div className='row'>
-          <Square val={board[3]} checkSquare={() => checkSquare(3)} />
+            <Square val={board[1]} checkSquare={() => checkSquare(1)} />
+            <Square val={board[2]} checkSquare={() => checkSquare(2)} />
+          </div>
+          <div className='row'>
+            <Square val={board[3]} checkSquare={() => checkSquare(3)} />
 
-          <Square val={board[4]} checkSquare={() => checkSquare(4)} />
+            <Square val={board[4]} checkSquare={() => checkSquare(4)} />
 
-          <Square val={board[5]} checkSquare={() => checkSquare(5)} />
-        </div>
-        <div className='row'>
-          <Square val={board[6]} checkSquare={() => checkSquare(6)} />
+            <Square val={board[5]} checkSquare={() => checkSquare(5)} />
+          </div>
+          <div className='row'>
+            <Square val={board[6]} checkSquare={() => checkSquare(6)} />
 
-          <Square val={board[7]} checkSquare={() => checkSquare(7)} />
+            <Square val={board[7]} checkSquare={() => checkSquare(7)} />
 
-          <Square val={board[8]} checkSquare={() => checkSquare(8)} />
+            <Square val={board[8]} checkSquare={() => checkSquare(8)} />
+          </div>
         </div>
       </div>
     </div>
