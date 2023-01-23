@@ -3,12 +3,14 @@ import Square from "./Square";
 import { useState, useEffect } from "react";
 import { WinningPatterns } from "./WinningPatterns";
 import Modal from "./Modal";
+import SignInUp from "./SignInUp";
 
 const Game = () => {
   const [board, setBoard] = useState(["", "", "", "", "", "", "", "", ""]);
   const [player, setPlayer] = useState("O");
   const [winner, setWinner] = useState({ winner: "none", state: "none" });
   const [openModal, setModel] = useState(false);
+  const [profile, setProfile] = useState([]);
 
   useEffect(() => {
     checkWinner();
