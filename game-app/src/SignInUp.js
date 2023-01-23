@@ -1,13 +1,23 @@
 import React from "react";
-import { signInWithGoogle } from "./Firebase";
-import GoogleButton from "react-google-button";
+import { UserAuth } from "./context/AuthContext";
+
+import { GoogleButton } from "react-google-button";
 
 const SignInUp = () => {
+  const { googleSignIn } = UserAuth();
+  const handleGoogleSignIn = async () => {
+    try {
+      await googleSignIn();
+    } catch (error) {
+      console.log("Error");
+    }
+  };
   return (
-    <div className='signUp'>
-      <button className='signUp button' onClick={signInWithGoogle}>
-        <GoogleButton />
-      </button>
+    <div>
+      <h1 className='title'>SignIn to Start Playing!!</h1>
+      <div className='signUp'>
+        <GoogleButton onClick={handleGoogleSignIn} />
+      </div>
     </div>
   );
 };
